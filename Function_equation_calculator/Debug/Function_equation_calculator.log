@@ -1,0 +1,3 @@
+﻿  Source (4).cpp
+C:\Users\Wagner\source\Projekte\Funktionsgleichungsrechner\Verbesserter Funktionsgleichungsrechner\Source (4).cpp(137): warning C4717: "menu": Rekursiv für alle Steuerelementpfade. Die Funktion verursacht einen Stapelüberlauf zur Laufzeit.
+  Function_equation_calculator.vcxproj -> C:\Users\Wagner\source\repos\Function_equation_calculator\Debug\Function_equation_calculator.exe
