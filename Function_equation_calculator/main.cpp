@@ -24,12 +24,12 @@ struct math_t
 	float t;
 };
 
-//Quadratische Funktion
+
 void prozess_quadrat(math_t kordinaten, types_e mode)
 {
 	switch (mode)
 	{
-		case (QUAD_FIND_A): {	//Gegeben ist a und b,c ist gesucht (A. 2013-5 und L. 2013-21)
+		case (QUAD_FIND_A): {
 			if ((kordinaten.x1 > 0) || (kordinaten.x1 < 0)) {
 				std::cout << "\nErgebnis:\na = " << kordinaten.a << "\nb = " << ((kordinaten.y1 - kordinaten.y2) - ((kordinaten.a * pow(kordinaten.x1, 2)) - (kordinaten.a * pow(kordinaten.x2, 2)))) / (kordinaten.x1 - kordinaten.x2) << "\nc = "
 					<< kordinaten.y1 - ((kordinaten.a * pow(kordinaten.x1, 2)) + (kordinaten.x1 * (((kordinaten.y1 - kordinaten.y2) - ((kordinaten.a * pow(kordinaten.x1, 2)) - (kordinaten.a * pow(kordinaten.x2, 2)))) / (kordinaten.x1 - kordinaten.x2)))) << "\n\n";
@@ -46,14 +46,14 @@ void prozess_quadrat(math_t kordinaten, types_e mode)
 			}
 			break;
 		}
-		case (QUAD_FIND_B): {	//Gegeben ist b und a,c ist gesucht
+		case (QUAD_FIND_B): {
 			if ((kordinaten.x1 > 0) || (kordinaten.x1 < 0)) {
 				std::cout << "\nErgebnis:\na = " << ((kordinaten.y1 - kordinaten.y2) - ((kordinaten.x1 * kordinaten.b) - (kordinaten.x2 * kordinaten.b))) / (pow(kordinaten.x1, 2) - (pow(kordinaten.x2, 2))) << "\nb = " 
 					<< kordinaten.b << "\nc = " << kordinaten.y1 - ((((kordinaten.y1 - kordinaten.y2) - ((kordinaten.x1 * kordinaten.b) - (kordinaten.x2 * kordinaten.b))) / (pow(kordinaten.x1, 2) - (pow(kordinaten.x2, 2)))) * (pow(kordinaten.x1, 2)) + (kordinaten.x1 * kordinaten.b)) << "\n\n";
 				break;
 			}
 			else if (kordinaten.x1 == 0) {
-				//a berechnen
+				
 				std::cout << "\nErgebnis:\na = " << (kordinaten.y2 - ((kordinaten.x2 * kordinaten.b) + kordinaten.y1)) / (pow(kordinaten.x2, 2)) << "\nb = " << kordinaten.b << "\nc = " << kordinaten.y1 << "\n\n";
 				break;
 			}
@@ -63,8 +63,8 @@ void prozess_quadrat(math_t kordinaten, types_e mode)
 			}
 			break;
 		}
-		case (QUAD_FIND_C): {	//Gegeben ist c und a,b ist gesucht (A. S.34 und L. S.48) 
-			//a berechnen
+		case (QUAD_FIND_C): { 
+			
 			kordinaten.a = ((kordinaten.x2 * (kordinaten.y1 - kordinaten.c)) - (kordinaten.x1 * (kordinaten.y2 - kordinaten.c))) / ((kordinaten.x2 * pow(kordinaten.x1, 2)) - (kordinaten.x1 * pow(kordinaten.x2, 2)));
 	
 			std::cout << "\nErgebnis:\na = " << kordinaten.a << "\nb = " << (kordinaten.y1 - (((kordinaten.x2 * pow(kordinaten.x1, 2)) / kordinaten.x2 * kordinaten.a) + kordinaten.c)) / kordinaten.x1 << "\nc = " << kordinaten.c << "\n\n";
@@ -73,7 +73,7 @@ void prozess_quadrat(math_t kordinaten, types_e mode)
 	}
 }
 
-//Menü
+
 void menu()
 {
 	std::cout << "\nLineare Funktion\n\n\n(1) Gesucht ist m\n(2) Gesucht ist t\n\n\nQuadratische Funktion\n\n\n(3) Gegeben ist a\n(4) Gegeben ist b\n(5) Gegeben ist c\n" << std::endl;
@@ -103,7 +103,7 @@ void menu()
 		}
 		
 		case(types_e::QUAD_FIND_A): {
-			std::cout << "\nGebe ein: x1,  y1,  x2,  y2  a\n";
+			std::cout << "\nGebe ein: x1,  y1,  x2,  y2,  a\n";
 			std::cin >> kordinaten.x1 >> kordinaten.y1 >> kordinaten.x2 >> kordinaten.y2 >> kordinaten.a;
 			
 			prozess_quadrat(kordinaten, QUAD_FIND_A);
@@ -111,7 +111,7 @@ void menu()
 		}
 		
 		case(types_e::QUAD_FIND_B): {
-			std::cout << "\nGebe ein: x1,  y1,  x2,  y2  b\n";
+			std::cout << "\nGebe ein: x1,  y1,  x2,  y2,  b\n";
 			std::cin >> kordinaten.x1 >> kordinaten.y1 >> kordinaten.x2 >> kordinaten.y2 >> kordinaten.b;
 			
 			prozess_quadrat(kordinaten, QUAD_FIND_B);
@@ -119,7 +119,7 @@ void menu()
 		}
 		
 		case(types_e::QUAD_FIND_C): {
-			std::cout << "\nGebe ein: x1,  y1,  x2,  y2  c\n";
+			std::cout << "\nGebe ein: x1,  y1,  x2,  y2,  c\n";
 			std::cin >> kordinaten.x1 >> kordinaten.y1 >> kordinaten.x2 >> kordinaten.y2 >> kordinaten.c;
 			
 			prozess_quadrat(kordinaten, QUAD_FIND_C);
